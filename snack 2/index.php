@@ -13,13 +13,20 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti
 
 //variabili
 
-$user = [
-  "nome" => $_GET["name"],
-  "mail" => $_GET["mail"],
-  "age"=> $_GET["age"]
-];
 
-foreach($user as $k => $item) {
+  $nome = $_GET["name"];
+  $mail = $_GET["mail"];
+  $age = $_GET["age"];
   
-}
+  if (strlen($nome) < 3) {
+    echo "Accesso negato";
+  } elseif (strpos($mail, '.') == false) {
+    echo "Accesso negato";
+  } elseif (strpos($mail, '@') == false) {
+    echo "Accesso negato";
+  } elseif (is_numeric($age) == false) {
+    echo "Accesso negato";
+  } else {
+    echo "Accesso riuscito";
+  }
 ?>
